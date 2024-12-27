@@ -1,0 +1,36 @@
+type Query{
+    getPosts(id:ID!): Post
+    getCommentByPostId(id:ID!): [Comment]
+}
+type Mutation{
+    updatePost(post: PostData):Post
+}
+
+input PostData{
+    id:ID!,
+    title:String,
+    content:String
+}
+
+
+type Post{
+    id: ID!,
+    title: String,
+    content: String,
+    user: User
+}
+
+type User{
+    id: ID!
+    name: String,
+    email: String,
+    password: String,
+    birthDate: String
+}
+
+type Comment{
+    id:ID!,
+    text: String,
+    user: User,
+    post: Post
+}
